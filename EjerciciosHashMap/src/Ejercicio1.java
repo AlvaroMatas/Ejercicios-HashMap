@@ -1,10 +1,13 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Ejercicio1 {
 	
 	static BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+	static Map<String, Integer> agenda = new HashMap<String, Integer>();
 
 	public static void main(String[] args) throws IOException {
 		int opcion = 0;
@@ -81,8 +84,35 @@ public class Ejercicio1 {
 	}
 	
 	//Metodo para agendar a un amigo
-	private static void agendarAmigo() { //1
+	private static void agendarAmigo() throws IOException { //1
+		String nombre;
+		boolean numValido = false;
+		int numero = 0;
 		
+		System.out.print("Dime el nombre del contacto: ");
+		nombre = entrada.readLine();
+		
+		while (!numValido) {
+			try {
+				
+				System.out.print("Dime el número del contacto: ");
+				numero = Integer.parseInt(entrada.readLine());
+				
+				if (numero >= 111111111 && numero <= 999999999) {
+					numValido = true;
+				}else {
+					System.out.println("ERROR: el número tiene que ser de 9 cifras");
+				}
+				
+			} catch (NumberFormatException e) {
+				System.out.println("ERROR: debes introducir un número de teléfono");
+			}
+		}
+		
+		agenda.put(nombre, numero);
+		
+		System.out.println("*****Contacto añadido correctamente*****");
+		System.out.println();
 		
 	}
 	
