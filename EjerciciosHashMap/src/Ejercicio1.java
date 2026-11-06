@@ -129,43 +129,43 @@ public class Ejercicio1 {
 	}
 	
 	//Metodo para modificar el telefono de un amigo
-	private static void modificarTelAmigo() {
+	private static void modificarTelAmigo() { //4
 		
 		
 	}
 	
 	//Consultar a quien pertenece un numero de telefono
-	private static void consultarPertenenciaNumero() {
+	private static void consultarPertenenciaNumero() { //5
 		
 		
 	}
 	
 	//Metodo para borrar a un amigo de la agenda
-	private static void borrarAmigo() {
+	private static void borrarAmigo() { //6
 		
 		
 	}
 	
 	//Metodo para mostrar el contenido de la agenda
-	private static void mostrarContenidoAgenda() {
+	private static void mostrarContenidoAgenda() { //7
 		
 		
 	}
 	
 	//Metodo para mostrar los nombres de los agendados
-	private static void mostrarNombres() {
+	private static void mostrarNombres() { //8
 		
 		
 	}
 	
 	//Metodo para ordenar por nombre
-	private static void ordenarPorNombre() {
+	private static void ordenarPorNombre() { //9
 		
 		
 	}
 
 	//Metodo para ordenar por numero
-	private static void ordenarPorNumero() {
+	private static void ordenarPorNumero() { //10
 		
 		
 	}
