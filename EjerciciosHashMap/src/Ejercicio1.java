@@ -3,6 +3,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+
+import javax.swing.text.StyledEditorKit.BoldAction;
 
 public class Ejercicio1 {
 	
@@ -141,19 +144,24 @@ public class Ejercicio1 {
 		
 		System.out.print("Nombre amigo: ");
 		String nombre = entrada.readLine();
+		boolean encontrado = false;
 		
-		Integer telefono = agenda.get(nombre);
+		for (Entry<String, Integer> amigo : agenda.entrySet()) {
+			if (amigo.getKey().equals(nombre)) {
+				System.out.println(nombre + " tiene el teléfono: " + amigo.getValue());
+				encontrado = true;
+				break;
+			}
+		}
 		
-		if (telefono != null) {
-			System.out.println("El telefono de " + nombre + " es: " + telefono);
-		}else {
+		if (!encontrado) {
 			System.out.println("No se ha encontrado a " + nombre + " en la agenda");
 		}
 		
 	}
 	
 	//Metodo para modificar el telefono de un amigo
-	private static void modificarTelAmigo() { //4
+	private static void modificarTelAmigo() throws IOException { //4
 		
 		
 	}
