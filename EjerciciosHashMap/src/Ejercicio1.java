@@ -119,11 +119,26 @@ public class Ejercicio1 {
 	//Metodo para consultar el numero de amigos que hay
 	private static void consultarNumTotal() { //2
 		
+		if (agenda.isEmpty()) {
+			System.out.println("La agenda está vacia");
+			System.out.println();
+			return;
+		}
+		
+		int total = agenda.size();
+		
+		System.out.println("En la agenda tienes un total de " + total + " amigos");
 		
 	}
 	
 	//Metodo para consultar el telefono de un amigo
 	private static void consultarTelAmigo() { //3
+		if (agenda.isEmpty()) {
+			System.out.println("La agenda está vacia");
+			System.out.println();
+			return;
+		}
+		
 		
 		
 	}
