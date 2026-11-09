@@ -132,14 +132,23 @@ public class Ejercicio1 {
 	}
 	
 	//Metodo para consultar el telefono de un amigo
-	private static void consultarTelAmigo() { //3
+	private static void consultarTelAmigo() throws IOException { //3
 		if (agenda.isEmpty()) {
 			System.out.println("La agenda está vacia");
 			System.out.println();
 			return;
 		}
 		
+		System.out.print("Nombre amigo: ");
+		String nombre = entrada.readLine();
 		
+		Integer telefono = agenda.get(nombre);
+		
+		if (telefono != null) {
+			System.out.println("El telefono de " + nombre + " es: " + telefono);
+		}else {
+			System.out.println("No se ha encontrado a " + nombre + " en la agenda");
+		}
 		
 	}
 	
