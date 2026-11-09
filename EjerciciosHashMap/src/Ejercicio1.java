@@ -162,6 +162,32 @@ public class Ejercicio1 {
 	
 	//Metodo para modificar el telefono de un amigo
 	private static void modificarTelAmigo() throws IOException { //4
+		if (agenda.isEmpty()) {
+			System.out.println("La agenda está vacia");
+			System.out.println();
+			return;
+		}
+		
+		System.out.print("Nombre de amigo: ");
+		String nombre = entrada.readLine();
+		boolean encontrado = false;
+		
+		for (Entry<String, Integer> nombreAmigo: agenda.entrySet()) {
+			if (nombreAmigo.getKey().equals(nombre)) {
+				encontrado = true;
+				
+				System.out.print("Dime el nuevo telefono: ");
+				int nuevoTel = Integer.parseInt(entrada.readLine());
+				nombreAmigo.setValue(nuevoTel);
+				System.out.println("*****Telefono cambiado correctamente*****");
+				break;
+			}
+		}
+		
+		if (!encontrado) {
+			System.out.println("No se ha encontrado a " + nombre + " en la agenda");
+		}
+		
 		
 		
 	}
