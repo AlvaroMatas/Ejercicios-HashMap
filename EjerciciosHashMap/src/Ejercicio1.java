@@ -170,26 +170,20 @@ public class Ejercicio1 {
 		
 		System.out.print("Nombre de amigo: ");
 		String nombre = entrada.readLine();
-		boolean encontrado = false;
 		
-		for (Entry<String, Integer> nombreAmigo: agenda.entrySet()) {
-			if (nombreAmigo.getKey().equals(nombre)) {
-				encontrado = true;
-				
-				System.out.print("Dime el nuevo telefono: ");
-				int nuevoTel = Integer.parseInt(entrada.readLine());
-				nombreAmigo.setValue(nuevoTel);
-				System.out.println("*****Telefono cambiado correctamente*****");
-				break;
-			}
-		}
-		
-		if (!encontrado) {
+		if (agenda.containsKey(nombre)) {
+			
+			System.out.print("Nuevo telefono: ");
+			int nuevoTel = Integer.parseInt(entrada.readLine());
+			agenda.put(nombre, nuevoTel);
+			System.out.println("*****Numero cambiado correctamente*****");
+			
+		}else {
+			
 			System.out.println("No se ha encontrado a " + nombre + " en la agenda");
+			System.out.println();
+			
 		}
-		
-		
-		
 	}
 	
 	//Consultar a quien pertenece un numero de telefono
