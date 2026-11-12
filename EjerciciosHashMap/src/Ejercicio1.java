@@ -60,6 +60,14 @@ public class Ejercicio1 {
 		} while (opcion != 11);
 
 	}
+	
+	//Metodo para pedir el nombre
+	private static String pedirNombre() throws IOException {
+		System.out.print("Nombre amigo: ");
+		String nombre = entrada.readLine();
+		
+		return nombre;
+	}
 
 	//Metodo para pedir la opcion
 	private static int pedirOpcion() throws IOException {
