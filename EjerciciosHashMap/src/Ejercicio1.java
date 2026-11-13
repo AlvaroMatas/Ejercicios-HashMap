@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.channels.Pipe.SourceChannel;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -210,13 +211,11 @@ public class Ejercicio1 {
 			return;
 		}
 		
-		System.out.print("Nombre de amigo: ");
-		String nombre = entrada.readLine();
+		String nombre = pedirNombre();
 		
 		if (agenda.containsKey(nombre)) {
 			
-			System.out.print("Nuevo telefono: ");
-			int nuevoTel = Integer.parseInt(entrada.readLine());
+			int nuevoTel = pedirNumTel();
 			agenda.put(nombre, nuevoTel);
 			System.out.println("*****Numero cambiado correctamente*****");
 			
@@ -229,13 +228,35 @@ public class Ejercicio1 {
 	}
 	
 	//Consultar a quien pertenece un numero de telefono
-	private static void consultarPertenenciaNumero() { //5
+	private static void consultarPertenenciaNumero() throws IOException { //5
 		
+		if (agenda.isEmpty()) {
+			System.out.print("La agenda esta vacia");
+			System.out.println();
+			return;
+		}
+		
+		int numTel = pedirNumTel();
+		boolean encontrado = false;
+		
+		for (Entry<String, Integer> amigo : agenda.entrySet()) {
+			if (amigo.getValue().equals(numTel)) {
+				System.out.println("El numero " + numTel + " pertenece a " + amigo.getKey());
+				System.out.println();
+				encontrado = true;
+				break;
+			}
+		}
+		
+		if (!encontrado) {
+			System.out.println("No se ha encontrado el numero " + numTel + " en la agenda");
+			System.out.println();
+		}
 		
 	}
 	
 	//Metodo para borrar a un amigo de la agenda
-	private static void borrarAmigo() { //6
+	private static void borrarAmigo() throws IOException { //6
 		
 		
 	}
