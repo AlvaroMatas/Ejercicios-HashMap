@@ -14,7 +14,7 @@ public class Ejercicio1 {
 	static Map<String, Integer> agenda = new HashMap<String, Integer>();
 
 	public static void main(String[] args) throws IOException {
-		pedirNombre();
+
 		int opcion = 0;
 		
 		do {
@@ -103,6 +103,18 @@ public class Ejercicio1 {
 		
 		return numTel;
 	}
+	
+	//Metodo para consultar si la agenda esta vacia
+	private static boolean consultarAgendaVacia() {
+		
+		if (agenda.isEmpty()) {
+			System.out.println("La agenda está vacia");
+			System.out.println();
+			return true;
+		}
+		
+		return false;
+	}
 
 	//Metodo para pedir la opcion
 	private static int pedirOpcion() throws IOException {
@@ -132,28 +144,17 @@ public class Ejercicio1 {
 	//Metodo para agendar a un amigo
 	private static void agendarAmigo() throws IOException { //1
 		String nombre;
-		boolean numValido = false;
 		int numero = 0;
 		
-		System.out.print("Dime el nombre del contacto: ");
-		nombre = entrada.readLine();
+		nombre = pedirNombre();
 		
-		while (!numValido) {
-			try {
-				
-				System.out.print("Dime el número del contacto: ");
-				numero = Integer.parseInt(entrada.readLine());
-				
-				if (numero >= 111111111 && numero <= 999999999) {
-					numValido = true;
-				}else {
-					System.out.println("ERROR: el número tiene que ser de 9 cifras");
-				}
-				
-			} catch (NumberFormatException e) {
-				System.out.println("ERROR: debes introducir un número de teléfono");
-			}
+		if (agenda.containsKey(nombre)) {
+			System.out.println("Ya tienes a " + nombre + " agregado");
+			System.out.println();
+			return;
 		}
+		
+		numero = pedirNumTel();
 		
 		agenda.put(nombre, numero);
 		
@@ -165,9 +166,7 @@ public class Ejercicio1 {
 	//Metodo para consultar el numero de amigos que hay
 	private static void consultarNumTotal() { //2
 		
-		if (agenda.isEmpty()) {
-			System.out.println("La agenda está vacia");
-			System.out.println();
+		if (consultarAgendaVacia()) {
 			return;
 		}
 		
@@ -180,9 +179,7 @@ public class Ejercicio1 {
 	
 	//Metodo para consultar el telefono de un amigo
 	private static void consultarTelAmigo() throws IOException { //3
-		if (agenda.isEmpty()) {
-			System.out.println("La agenda está vacia");
-			System.out.println();
+		if (consultarAgendaVacia()) {
 			return;
 		}
 		
@@ -208,9 +205,7 @@ public class Ejercicio1 {
 	
 	//Metodo para modificar el telefono de un amigo
 	private static void modificarTelAmigo() throws IOException { //4
-		if (agenda.isEmpty()) {
-			System.out.println("La agenda está vacia");
-			System.out.println();
+		if (consultarAgendaVacia()) {
 			return;
 		}
 		
@@ -234,9 +229,7 @@ public class Ejercicio1 {
 	//Consultar a quien pertenece un numero de telefono
 	private static void consultarPertenenciaNumero() throws IOException { //5
 		
-		if (agenda.isEmpty()) {
-			System.out.print("La agenda esta vacia");
-			System.out.println();
+		if (consultarAgendaVacia()) {
 			return;
 		}
 		
@@ -263,9 +256,7 @@ public class Ejercicio1 {
 	//Metodo para borrar a un amigo de la agenda
 	private static void borrarAmigo() throws IOException { //6
 		
-		if (agenda.isEmpty()) {
-			System.out.print("La agenda esta vacia");
-			System.out.println();
+		if (consultarAgendaVacia()) {
 			return;
 		}
 		
