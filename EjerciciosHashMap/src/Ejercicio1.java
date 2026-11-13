@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.channels.Pipe.SourceChannel;
@@ -6,8 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
-
-import javax.swing.text.StyledEditorKit.BoldAction;
 
 public class Ejercicio1 {
 	
@@ -20,7 +19,7 @@ public class Ejercicio1 {
 		
 		do {
 			
-			System.out.println("*****Agenda de contactos*****\n [1]Agendar a un amigo\n [2]Consultar el numero de amigos que hay agendados\n [3]Consultar el telefono de un amigo\n [4]Modificar el telefono de un amigo\n [5]Consultar a quien pertenece un número de teléfono\n [6]Borrar a un ex-amido de la agenda\n [7]Mostrar el contenido de una agenda\n [8]Mostrar solo los nombres de los amigos\n [9]Ordenar agenda por nombres\n [10]Ordenar agenda por telefonos\n [11]SALIR");
+			System.out.println("*****Agenda de contactos*****\n [1]Agendar a un amigo\n [2]Consultar el numero de amigos que hay agendados\n [3]Consultar el telefono de un amigo\n [4]Modificar el telefono de un amigo\n [5]Consultar a quien pertenece un número de teléfono\n [6]Borrar a un ex-amido de la agenda\n [7]Mostrar el contenido de una agenda\n [8]Mostrar solo los nombres de los amigos\n [9]Ordenar agenda por nombres\n [10]SALIR");
 			
 			opcion = pedirOpcion();
 			
@@ -52,16 +51,13 @@ public class Ejercicio1 {
 			case 9:
 				ordenarPorNombre();
 				break;
-			case 10:
-				ordenarPorNumero();
-				break;
 
 			default:
 				System.out.println("*****SALIENDO DEL PROGRAMA*****");
 				break;
 			}
 			
-		} while (opcion != 11);
+		} while (opcion != 10);
 
 	}
 	
@@ -316,11 +312,14 @@ public class Ejercicio1 {
 		
 	}
 
+	/* NO SE PUEDE ORDENAR UN HASHMAP
 	//Metodo para ordenar por numero
 	private static void ordenarPorNumero() { //10
 		if (consultarAgendaVacia()) {
 			return;
 		}
 		
-	}
+		
+		
+	}*/
 }
