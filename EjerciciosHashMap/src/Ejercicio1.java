@@ -5,6 +5,7 @@ import java.nio.channels.Pipe.SourceChannel;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import javax.swing.text.StyledEditorKit.BoldAction;
 
@@ -144,7 +145,7 @@ public class Ejercicio1 {
 	
 	//Metodo para agendar a un amigo
 	private static void agendarAmigo() throws IOException { //1
-		String nombre;
+		/*String nombre;
 		int numero = 0;
 		
 		nombre = pedirNombre();
@@ -156,8 +157,12 @@ public class Ejercicio1 {
 		}
 		
 		numero = pedirNumTel();
-		
-		agenda.put(nombre, numero);
+		*/
+		//agenda.put(nombre, numero);
+		agenda.put("Alex", 542632589);
+		agenda.put("Alvaro", 785632547);
+		agenda.put("Ainoa", 124578874);
+		agenda.put("Valeri", 896521456);
 		
 		System.out.println("*****Contacto añadido correctamente*****");
 		System.out.println();
@@ -296,13 +301,26 @@ public class Ejercicio1 {
 	
 	//Metodo para ordenar por nombre
 	private static void ordenarPorNombre() { //9
+		if (consultarAgendaVacia()) {
+			return;
+		}
 		
+		System.out.println("AGENDA ORDENADA POR NOMBRE");
+		Map<String, Integer> agendaOrdenada = new TreeMap<>(agenda);//treeMap ya ordena directamente el hashMap
+		
+		for (Entry<String, Integer> amigo : agendaOrdenada.entrySet()) {
+			System.out.println("Nombre: " + amigo.getKey() + " | " + "Telefono: " + amigo.getValue());
+			System.out.println();
+			
+		}
 		
 	}
 
 	//Metodo para ordenar por numero
 	private static void ordenarPorNumero() { //10
-		
+		if (consultarAgendaVacia()) {
+			return;
+		}
 		
 	}
 }
