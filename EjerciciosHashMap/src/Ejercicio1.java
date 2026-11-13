@@ -174,6 +174,7 @@ public class Ejercicio1 {
 		int total = agenda.size();
 		
 		System.out.println("En la agenda tienes un total de " + total + " amigos");
+		System.out.println();
 		
 	}
 	
@@ -192,6 +193,7 @@ public class Ejercicio1 {
 		for (Entry<String, Integer> amigo : agenda.entrySet()) {
 			if (amigo.getKey().equals(nombre)) {
 				System.out.println(nombre + " tiene el teléfono: " + amigo.getValue());
+				System.out.println();
 				encontrado = true;
 				break;
 			}
@@ -199,6 +201,7 @@ public class Ejercicio1 {
 		
 		if (!encontrado) {
 			System.out.println("No se ha encontrado a " + nombre + " en la agenda");
+			System.out.println();
 		}
 		
 	}
@@ -218,6 +221,7 @@ public class Ejercicio1 {
 			int nuevoTel = pedirNumTel();
 			agenda.put(nombre, nuevoTel);
 			System.out.println("*****Numero cambiado correctamente*****");
+			System.out.println();
 			
 		}else {
 			
@@ -243,6 +247,7 @@ public class Ejercicio1 {
 			if (amigo.getValue().equals(numTel)) {
 				System.out.println("El numero " + numTel + " pertenece a " + amigo.getKey());
 				System.out.println();
+				System.out.println();
 				encontrado = true;
 				break;
 			}
@@ -258,6 +263,18 @@ public class Ejercicio1 {
 	//Metodo para borrar a un amigo de la agenda
 	private static void borrarAmigo() throws IOException { //6
 		
+		if (agenda.isEmpty()) {
+			System.out.print("La agenda esta vacia");
+			System.out.println();
+			return;
+		}
+		
+		System.out.println("VAS A BORRAR A UN AMIGO");
+		String nombre = pedirNombre();
+		
+		agenda.remove(nombre);
+		System.out.println("*****Amigo borrado correctamente*****");
+		System.out.println();
 		
 	}
 	
