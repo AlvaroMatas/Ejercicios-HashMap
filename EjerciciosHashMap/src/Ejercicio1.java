@@ -13,6 +13,7 @@ public class Ejercicio1 {
 	static Map<String, Integer> agenda = new HashMap<String, Integer>();
 
 	public static void main(String[] args) throws IOException {
+		pedirNombre();
 		int opcion = 0;
 		
 		do {
@@ -63,10 +64,43 @@ public class Ejercicio1 {
 	
 	//Metodo para pedir el nombre
 	private static String pedirNombre() throws IOException {
-		System.out.print("Nombre amigo: ");
-		String nombre = entrada.readLine();
+		
+		String nombre = "";
+		
+		while (nombre.isEmpty()) {
+			System.out.print("Nombre amigo: ");
+			nombre = entrada.readLine();
+			
+			if (nombre.isEmpty()) {
+				System.out.println("ERROR: El nombre no puede estar vacio");
+			}
+		}
 		
 		return nombre;
+	}
+	
+	//Metodo para pedir numero de telefono
+	private static int pedirNumTel() throws IOException {
+		
+		boolean valida = false;
+		int numTel = 111111111;
+		
+		while (!valida) {
+			try {
+				System.out.print("Numero de telefono: ");
+				numTel = Integer.parseInt(entrada.readLine());
+				
+				if (numTel >= 111111111 && numTel <= 999999999) {
+					valida = true;
+				}else {
+					System.out.println("ERROR: Debes introducir un numero valido de 9 digitos");
+				}
+			} catch (NumberFormatException e) {
+				System.out.println("ERROR: Debes introducir un numero valido de 9 digitos");
+			} 
+		}
+		
+		return numTel;
 	}
 
 	//Metodo para pedir la opcion
