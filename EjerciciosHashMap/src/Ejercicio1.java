@@ -56,6 +56,7 @@ public class Ejercicio1 {
 				break;
 
 			default:
+				System.out.println("*****SALIENDO DEL PROGRAMA*****");
 				break;
 			}
 			
@@ -271,13 +272,25 @@ public class Ejercicio1 {
 	
 	//Metodo para mostrar el contenido de la agenda
 	private static void mostrarContenidoAgenda() { //7
+		if (consultarAgendaVacia()) {
+			return;
+		}
 		
+		System.out.println("AGENDA DE AMIGOS");
+		System.out.println(agenda.entrySet());
+		System.out.println();
 		
 	}
 	
 	//Metodo para mostrar los nombres de los agendados
 	private static void mostrarNombres() { //8
+		if (consultarAgendaVacia()) {
+			return;
+		}
 		
+		System.out.println("NOMBRES AMIGOS");
+		System.out.println(agenda.keySet());
+		System.out.println();
 		
 	}
 	
